@@ -16,13 +16,13 @@ public class NotAllPairs {
 }
 /*
 
- Counting Iterations
- TIME COMPLEXITY = (n-1)+(n-2)+(n-3)+......3+2+1
-                 = n*(n-1)/2
-                 = (n^2)/2 - (n/2)
-                 = (n^2)/2
-                 = (n^2)
-                 = O(n^2)
+Counting iterations
+TIME COMPLEXITY = (n-1)+(n-2)+(n-3)+......3+2+1
+                = n*(n-1)/2
+                = (n^2)/2 - (n/2)
+                = (n^2)/2
+                = (n^2)
+                = O(n^2)
 
 
  */
