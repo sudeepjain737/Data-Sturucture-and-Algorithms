@@ -133,24 +133,34 @@ public class BinaryTreeMethods {
     }
 
 //          Method to delete DeepestNode in Binary Tree
-    public void deleteDeepestNode(){
+    public void deleteDeepestNode(BinaryNode node){
         Queue<BinaryNode>queue = new LinkedList<>();
         queue.add(root);
         BinaryNode currentNode = new BinaryNode();
-        BinaryNode previousNode = new BinaryNode();
         while (queue.isEmpty() == false){
-            previousNode = currentNode;
             currentNode = queue.remove();
-            if(currentNode.left == null){
-                previousNode.right = null;
+            if(currentNode == node){
+                currentNode = null;
                 return;
             }
-            else if(currentNode.right == null){
-                currentNode.left = null;
-                return;
+            if(currentNode.left != null){
+                if(currentNode.left == node){
+                    currentNode.left = null;
+                    return;
+                }
+                else {
+                    queue.add(currentNode.left);
+                }
             }
-            queue.add(currentNode.left);
-            queue.add(currentNode.right);
+            if(currentNode.right != null){
+                if(currentNode.right == node){
+                    currentNode.right = null;
+                    return;
+                }
+                else {
+                    queue.add(currentNode.right);
+                }
+            }
         }
     }
 
@@ -163,7 +173,7 @@ public class BinaryTreeMethods {
             currentNode = queue.remove();
             if(currentNode.value.equals(s)){
                 currentNode.value = deepestNode().value;
-                deleteDeepestNode();
+                deleteDeepestNode(deepestNode());
                 System.out.println("Value Deleted Successfully");
                 return;
             }
