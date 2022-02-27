@@ -11,7 +11,7 @@ public class QueueFunctions {
             System.out.println("Queue of size " + n + " is Created");
         }
         public Boolean isEmpty(){
-            if(topInQueue == -1){
+            if(topInQueue == -1 || topInQueue == queue.length){
                 return true;
             }
             else{
@@ -52,6 +52,10 @@ public class QueueFunctions {
             else{
                 int x = FirstInQueue;
                 FirstInQueue = FirstInQueue+1;
+                if (FirstInQueue > topInQueue){
+                    FirstInQueue = -1;
+                    topInQueue = -1;
+                }
                 return queue[x];
             }
         }
